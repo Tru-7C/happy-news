@@ -95,10 +95,28 @@ export default function PrefectureTabs({
                 )}
 
                 <div className="flex flex-col justify-center p-6 md:p-8">
-                <p className="text-xs font-bold uppercase tracking-widest text-orange-600">
-                    {item.prefectureNames?.[0] ??
-                    selectedPrefecture.name}
-                </p>
+                  <div className="flex items-center gap-3">
+                    <p className="text-xs font-bold uppercase tracking-widest text-orange-600">
+                      {item.prefectureNames?.[0] ??
+                        selectedPrefecture.name}
+                    </p>
+
+                    {video?.published_at && (
+                      <time
+                        dateTime={video.published_at}
+                        className="text-xs text-gray-400"
+                      >
+                        {new Date(video.published_at).toLocaleDateString(
+                          "ja-JP",
+                          {
+                            year: "numeric",
+                            month: "numeric",
+                            day: "numeric",
+                          }
+                        )}
+                      </time>
+                    )}
+                </div>
 
                 <h3 className="mt-3 text-2xl font-bold leading-snug tracking-tight text-gray-900 md:text-3xl">
                     {item.title}
@@ -158,10 +176,28 @@ export default function PrefectureTabs({
                       )}
 
                       <div className="flex flex-1 flex-col px-4 pt-4 pb-5">
-                        <p className="text-xs font-semibold text-orange-600">
-                          {item.prefectureNames?.[0] ??
-                            selectedPrefecture.name}
-                        </p>
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="text-xs font-semibold text-orange-600">
+                            {item.prefectureNames?.[0] ??
+                              selectedPrefecture.name}
+                          </p>
+
+                          {video?.published_at && (
+                            <time
+                              dateTime={video.published_at}
+                              className="text-xs text-gray-400"
+                            >
+                              {new Date(video.published_at).toLocaleDateString(
+                                "ja-JP",
+                                {
+                                  year: "numeric",
+                                  month: "numeric",
+                                  day: "numeric",
+                                }
+                              )}
+                            </time>
+                          )}
+                        </div>
 
                         <h4 className="mt-2 text-lg font-bold leading-snug text-gray-900">
                           {item.title}
