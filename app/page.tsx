@@ -1,5 +1,6 @@
 import { getHappyNews } from "@/services/supabase/SupabaseService";
 import PrefectureTabs from "@/app/components/PrefectureTabs";
+import SettingsMenu from "@/app/components/SettingsMenu";
 
 export const dynamic = "force-dynamic";
 
@@ -51,17 +52,20 @@ export default async function Home() {
               Happy News
             </h1>
             <p className="mt-1 text-sm text-gray-500">
-              日本のちょっと嬉しいニュース
+              ほっこりするニュースだけ集めました。
             </p>
           </div>
 
-          <div className="text-right">
-            <p className="text-xs font-semibold uppercase tracking-widest text-orange-600">
-              Today’s Good News
-            </p>
-            <p className="mt-1 text-sm text-gray-500">
-              小さな幸せを、全国から。
-            </p>
+          <div className="flex items-center gap-5">
+            <div className="hidden text-right sm:block">
+              <p className="text-xs font-semibold uppercase tracking-widest text-orange-600">
+                Today’s Happy News
+              </p>
+              <p className="mt-1 text-sm text-gray-500">
+                小さな幸せを、全国から。
+              </p>
+            </div>
+            <SettingsMenu />
           </div>
         </div>
       </header>
