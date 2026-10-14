@@ -187,7 +187,7 @@ export default function PrefectureTabs({
   <>
     {/* 1行目：左にメイン、右に小さいニュース1件 */}
     <div className="mb-8 grid grid-cols-1 gap-5 lg:grid-cols-3">
-      {/* メインカード：横幅2列分 */}
+      {/* メインカード：横幅3列分 */}
       {(() => {
         const item = sortedNews[0];
         const video = Array.isArray(item.videos)
@@ -207,14 +207,14 @@ export default function PrefectureTabs({
                 <img
                   src={video.thumbnail_url}
                   alt={item.title}
-                  className="h-full min-h-56 w-full object-cover transition duration-300 hover:scale-[1.03]"
+                  className="h-full min-h-48 w-full object-cover transition duration-300 hover:scale-[1.03]"
                 />
               </div>
             ) : (
               <div className="min-h-56 bg-gray-100" />
             )}
 
-            <div className="flex flex-col justify-center p-5 md:p-6">
+            <div className="flex flex-col justify-center p-4 md:p-5">
               <div className="flex items-center gap-3">
                 <p className="text-xs font-bold text-orange-600">
                   {item.prefectureNames?.[0] ??
@@ -230,11 +230,11 @@ export default function PrefectureTabs({
                 )}
               </div>
 
-              <h2 className="mt-3 text-xl font-bold leading-snug text-gray-900 md:text-2xl">
+              <h2 className="mt-2 text-lg font-bold leading-snug text-gray-900 md:text-xl">
                 {item.title}
               </h2>
 
-              <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
+              <p className="mt-2 line-clamp-3 text-sm leading-5 text-gray-600">
                 {item.summary}
               </p>
 
@@ -281,11 +281,11 @@ export default function PrefectureTabs({
                     selectedPrefecture.name}
                 </p>
 
-                <h3 className="mt-2 text-lg font-bold leading-snug text-gray-900">
+                <h3 className="mt-1 text-base font-bold leading-snug text-gray-900">
                   {item.title}
                 </h3>
 
-                <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">
+                <p className="mt-1 line-clamp-3 text-sm leading-5 text-gray-600">
                   {item.summary}
                 </p>
 
@@ -308,7 +308,7 @@ export default function PrefectureTabs({
                 <div className="h-px flex-1 bg-gray-200" />
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {sortedNews.slice(2).map((item) => {
                   const video = Array.isArray(item.videos)
                     ? item.videos[0]
@@ -332,7 +332,7 @@ export default function PrefectureTabs({
                         </div>
                       )}
 
-                      <div className="flex flex-1 flex-col px-4 pb-5 pt-4">
+                      <div className="flex flex-1 flex-col px-3 pb-3 pt-3">
                         <div className="flex items-center justify-between gap-2">
                           <p className="text-xs font-semibold text-orange-600">
                             {item.prefectureNames?.[0] ??
@@ -355,11 +355,11 @@ export default function PrefectureTabs({
                           )}
                         </div>
 
-                        <h3 className="mt-2 text-lg font-bold leading-snug text-gray-900">
+                        <h3 className="mt-1 text-base font-bold leading-snug text-gray-900">
                           {item.title}
                         </h3>
 
-                        <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">
+                        <p className="mt-1 line-clamp-3 text-sm leading-5 text-gray-600">
                           {item.summary}
                         </p>
 
