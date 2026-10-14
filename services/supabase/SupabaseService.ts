@@ -35,7 +35,7 @@ export async function saveNewsToSupabase(
       reason: string;
     }
   ) {
-    const isHappy = analysis.happy_score >= 70;
+    const isHappy = analysis.happy_score >= 80;
   
     const { data, error } = await supabase
       .from("news")
