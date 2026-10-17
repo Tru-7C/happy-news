@@ -198,6 +198,8 @@ export default function PrefectureTabs({
           <a
             key={item.id}
             href={`/news/${item.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg lg:col-span-2 md:grid md:grid-cols-2"
           >
             {video?.thumbnail_url ? (
@@ -259,6 +261,8 @@ export default function PrefectureTabs({
             <a
               key={item.id}
               href={`/news/${item.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg"
             >
               {video?.thumbnail_url && (
@@ -313,6 +317,8 @@ export default function PrefectureTabs({
                   return (
                     <a
                       key={item.id}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       href={`/news/${item.id}`}
                       className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg"
                     >
