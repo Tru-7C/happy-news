@@ -1,0 +1,103 @@
+北海道・東北
+北海道	HTB北海道ニュース	@htbnews	🟢 News
+北海道	HBC北海道放送	@HBChokkaido	🟡 General
+青森	RAB青森放送	UCk_jA9Y8pb50Ab2EzV_KhLw	🟢 Official
+岩手	IBC岩手放送	@ibc6ch	🟡 General
+岩手	テレビ岩手TVIニュースチャンネル	@tvinewsch	🟢 News
+宮城	tbc東北放送	@tbc1260_official	🟡 General
+宮城	仙台放送ニュースチャンネル	UClElfQ7F1QndkPEFuqrDCLQ	🟢 News
+宮城	MMTミヤギテレビ	@miyateleNEWSNNN	🟢 News
+秋田	AAB秋田朝日放送	@aab5ch	🟢 Newsあり
+秋田	ABS秋田放送	@ABS4ch	🟡 General
+秋田	AKT秋田テレビ	@akt5868	🟡 General
+山形	YTS山形テレビ	@YTS5ch	🟢 Newsあり
+山形	YBC山形放送	@yamagatahoso	🟡 General
+山形	TUYテレビユー山形	@tuy6ch	🟡 General
+福島	福島テレビ	@ftv-news	🟢 News
+福島	FCT福島中央テレビNEWS	@fct_news	🟢 News
+福島	TUFテレビユー福島	@TUFchannel	🟡 General
+福島	KFB福島放送	@TV-qm8xe	🟡 General
+
+関東
+東京	TOKYO MX	@tokyomx	🟡 General
+神奈川	tvk	@tvk3ch	🟢 Newsあり
+埼玉	テレ玉NEWS	@teletama_news	🟢 News
+千葉	チバテレ	UCMoWRXDR4-S_R8479Ru0HjQ	🟡 General
+茨城	IbarakiKisha	要公式確認	🟡
+栃木	とちテレNEWS	UC_SN3bimHrEFQ0qe-5X5zFw	🟢 News
+群馬	群馬テレビ	@GTV	🟡 General
+
+中部・北陸
+新潟	UX新潟テレビ21	@UXTV5ch	🟢
+新潟	BSN新潟放送	@ohbsn	🟡
+新潟	TeNY新潟一番ニュース	@TeNYNEWS	🟢
+富山	チューリップテレビ	@bansenTUT	🟢
+富山	KNB北日本放送	@knb_official	🟡
+富山	BBT富山テレビ	@toyama_tv	🟡
+石川	MRO北陸放送	@mro_ishikawa	🟢
+石川	KTKテレビ金沢	@tv_kanazawa	🟡
+福井	FBC福井放送	@FBC	🟢候補
+福井	福井テレビ	@fukuitvbroadcasting	🟡
+山梨	UTYテレビ山梨	UCk2oG--VyYST4SYyQkeadjA	🟢
+長野	SBC信越放送	@6sbc	🟢
+静岡	静岡朝日テレビニュース	@satv_news	🟢
+静岡	SBS静岡放送	@SBSnews6	🟢
+静岡	静岡第一テレビ	@daiichi-tvnews	🟢
+岐阜	ぎふチャン	要公式確認	🟡
+愛知	メ〜テレニュース	@NagoyaTVnewsCH	🟢
+愛知	テレビ愛知	@tvaichi10ch	🟡
+愛知	中京テレビ	@CHUKYOTV_NEWS	🟢
+愛知	CBCテレビ	@cbctv_news	🟢
+愛知	東海テレビ	@newsone4365	🟢
+
+近畿
+大阪	ABCテレビニュース	@abc6ch	🟢 News
+滋賀	びわ湖放送	@BBC_biwako	🟢
+京都	KBS京都	@kbskyoto	🟢
+大阪	テレビ大阪ニュース	@tvosakanews	🟢 News
+兵庫	サンテレビ	@SuntvCoJp_ohsun	🟢
+奈良	奈良テレビNEWS	@tvn_news9	🟢 News
+和歌山	テレビ和歌山	@telewaka5ch	🟢
+
+中国
+鳥取・島根	BSS山陰放送	@BSS6	🟢
+鳥取	日本海テレビ	@nihonkai-news	🟢 News
+島根	TSK news イット!	@TSK_Sanin_news	🟢 News
+岡山	RSK山陽放送	@rsk4243	🟢
+岡山	OHK岡山放送	@ohk163	🟢
+岡山・香川	KSB瀬戸内海放送	UCH9jlbggZY_mRx7Q0k49TuQ	🟢
+岡山・香川	RNC	@rnc_tvradio	🟡
+広島	広テレ!NEWS	@hiroshimatvnews	🟢
+広島	HOME広島ホームテレビ	@HiroshimaTVONDEMAND	🟡
+広島	RCC中国放送	UCExGIeVLm6DBd_dd7AC4L-A	🟡
+山口	tysテレビ山口	@tysTVyamaguchi	🟢
+山口	yab山口ニュース	@yab_news	🟢
+山口	KRY山口放送	@KRYChannel	🟡
+
+四国
+徳島	四国放送	@jrt6239	🟢
+愛媛	あいテレビ	@itv6ch	🟢
+愛媛	南海放送	@RNBnewsch4	🟢 News
+愛媛	愛媛朝日テレビ	@ehimeasahiTV	🟡
+高知	KUTVテレビ高知	@kutv	🟢
+高知	RKC高知放送	@rkc5325	🟡
+高知	高知さんさんテレビ	@sunsuntv	🟡
+
+九州・沖縄
+福岡	FBS福岡放送ニュース	@fbsnews5	🟢 News
+福岡	RKB毎日放送	@rkbtv4	🟡
+福岡	福岡TNCニュース	@fukuokatncnews	🟢
+佐賀	サガテレビ	要公式確認	🟡
+長崎	NCC長崎文化放送	@ncctvnagasaki	🟢
+長崎	NBC長崎放送	@NBCnagasaki	🟡
+熊本	RKK熊本放送	@arupotv	🟢
+熊本	KAB熊本朝日放送	@kabnews5983	🟢
+大分	OBS大分放送	@Eobsobs3ch	🟢
+大分	TOSテレビ大分	@tostv4ch	🟡
+宮崎	MRT宮崎放送	@MRTmiyazaki	🟢
+鹿児島	MBC南日本放送	@KagoshimaMBC	🟢
+鹿児島	KYT鹿児島読売テレビ	@KagoshimaNEWS_KYT	🟢
+鹿児島	KKB鹿児島放送	@KKB5ch	🟡
+沖縄	RBC琉球放送	UCPxD1oyWWnpn6JBtfdYXrwA	🟢
+沖縄	QAB琉球朝日放送	@qab4524	🟢
+沖縄	OTV沖縄テレビ	@otv-okinawa	🟡
