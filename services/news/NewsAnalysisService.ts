@@ -4,7 +4,10 @@ import {
   updateVideoAiStatus,
 } from "../supabase/SupabaseService";
 
-import { analyzeNews } from "../openai/OpenAIService";
+import { 
+  analyzeNews,
+  generateNewsIntro
+} from "../openai/OpenAIService";
 
 export async function processPendingVideos(limit = 5) {
   // AI分析待ちの動画を取得
@@ -39,11 +42,23 @@ export async function processPendingVideos(limit = 5) {
         video.description ?? ""
       );
 
-      // AI分析結果を保存
-      // Happyではないニュースも保存する
+      // Happy Newsに掲載するニュースだけ導入文を生成
+      const introText =
+        analysis.happy_score >= 65
+          ? await generateNewsIntro(
+              video.title,
+              video.description ?? "",
+              analysis.summary
+            )
+    : null;
+
+      // AI分析結果と導入文を保存
       await saveNewsToSupabase(
         video.id,
-        analysis
+        {
+          ...analysis,
+          intro_text: introText,
+        }
       );
 
       // 完了

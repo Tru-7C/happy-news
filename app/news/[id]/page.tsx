@@ -52,9 +52,15 @@ export default async function NewsDetailPage({ params }: Props) {
       category,
       ai_processed_at,
       videos (
+        title,
+        description,
         youtube_url,
         thumbnail_url,
-        published_at
+        published_at,
+        youtube_channels (
+          channel_name,
+          channel_url
+        )
       )
     `)
     .eq("id", id)
@@ -74,6 +80,9 @@ export default async function NewsDetailPage({ params }: Props) {
     ? news.videos[0]
     : news.videos;
 
+  const channel = Array.isArray(video?.youtube_channels)
+  ? video.youtube_channels[0]
+  : video?.youtube_channels;
 
   // まず、同じカテゴリーのおすすめニュースを取得する
   const { data: sameCategoryNews, error: sameCategoryError } =
@@ -168,6 +177,31 @@ export default async function NewsDetailPage({ params }: Props) {
           <p className="mt-5 whitespace-pre-wrap leading-8 text-gray-700">
             {news.summary}
           </p>
+
+          {channel && (
+            <div className="mt-6 border-t border-gray-200 pt-4">
+              <p className="text-sm text-gray-500">
+                出典：動画チャンネル
+              </p>
+
+              {channel.channel_url && (
+                <a
+                  href={channel.channel_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-block font-semibold text-orange-600 hover:underline"
+                >
+                  {channel.channel_name}
+                </a>
+              )}
+
+              {video?.title && (
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  動画タイトル：{video.title}
+                </p>
+              )}
+            </div>
+          )}
 
           {video?.published_at && (
             <p className="mt-4 text-sm text-gray-400">

@@ -17,50 +17,53 @@ export const supabase = createClient(
   supabaseSecretKey
 );
 
+
 export async function saveNewsToSupabase(
-    videoId: string,
-    analysis: {
-      title: string;
-      summary: string;
-      happy_score: number;
-      category:
-        | "community"
-        | "children"
-        | "animals"
-        | "environment"
-        | "culture"
-        | "sports"
-        | "achievement"
-        | "technology"
-        | "other";
-      reason: string;
-    }
-  ) {
-    const isHappy = analysis.happy_score >= 65;
-  
-    const { data, error } = await supabase
-      .from("news")
-      .upsert(
-        {
-          video_id: videoId,
-          title: analysis.title,
-          summary: analysis.summary,
-          happy_score: analysis.happy_score,
-          category: analysis.category,
-          is_happy: isHappy,
-          ai_reason: analysis.reason,
-        },
-        { onConflict: "video_id" }
-      )
-      .select()
-      .single();
-  
-    if (error) {
-      throw new Error(`Failed to save news: ${error.message}`);
-    }
-  
-    return data;
+  videoId: string,
+  analysis: {
+    title: string;
+    summary: string;
+    happy_score: number;
+    category:
+      | "community"
+      | "children"
+      | "animals"
+      | "environment"
+      | "culture"
+      | "sports"
+      | "achievement"
+      | "technology"
+      | "other";
+    reason: string;
+    intro_text?: string | null;
   }
+) {
+  const isHappy = analysis.happy_score >= 65;
+
+  const { data, error } = await supabase
+    .from("news")
+    .upsert(
+      {
+        video_id: videoId,
+        title: analysis.title,
+        summary: analysis.summary,
+        happy_score: analysis.happy_score,
+        category: analysis.category,
+        is_happy: isHappy,
+        ai_reason: analysis.reason,
+        intro_text: analysis.intro_text ?? null,
+      },
+      { onConflict: "video_id" }
+    )
+    .select()
+    .single();
+
+  if (error) {
+    throw new Error(`Failed to save news: ${error.message}`);
+  }
+
+  return data;
+}
 
   export async function updateVideoAiStatus(
     videoId: string,
