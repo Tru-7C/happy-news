@@ -4,9 +4,10 @@ import {
   updateVideoAiStatus,
 } from "../supabase/SupabaseService";
 
-import { 
+import {
   analyzeNews,
-  generateNewsIntro
+  generateNewsIntro,
+  generateRelatedTerms,
 } from "../openai/OpenAIService";
 
 export async function processPendingVideos(limit = 5) {
@@ -50,7 +51,17 @@ export async function processPendingVideos(limit = 5) {
               video.description ?? "",
               analysis.summary
             )
-    : null;
+          : null;
+
+      // Happy Newsに掲載するニュースの用語・豆知識を生成
+      const relatedTerms =
+        analysis.happy_score >= 65
+          ? await generateRelatedTerms(
+              video.title,
+              video.description ?? "",
+              analysis.summary
+            )
+          : [];
 
       // AI分析結果と導入文を保存
       await saveNewsToSupabase(
@@ -58,6 +69,7 @@ export async function processPendingVideos(limit = 5) {
         {
           ...analysis,
           intro_text: introText,
+          related_terms: relatedTerms,
         }
       );
 

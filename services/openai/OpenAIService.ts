@@ -205,3 +205,123 @@ ${summary}
 
   return response.output_text.trim();
 }
+
+
+export type RelatedTerm = {
+  term: string;
+  reading: string;
+  explanation: string;
+  background?: string;
+};
+
+export async function generateRelatedTerms(
+  title: string,
+  description: string,
+  summary: string
+): Promise<RelatedTerm[]> {
+  const response = await openai.chat.completions.create({
+    model: "gpt-5-mini",
+    messages: [
+      {
+        role: "system",
+        content: `
+あなたは、日本の地域ニュースをきっかけに、読者の知的好奇心を満たす豆知識を提供する編集者です。
+
+ニュースを読んだ大人が「へぇ、そうなんだ！」「もっと知りたい！」と思える「用語・豆知識」を選んでください。
+
+【選び方】
+- 0〜3個選んでください。役立つ情報がなければ、空の配列を返してください。
+- 大人なら誰でも知っている一般的な言葉は選ばないでください。
+- 「準決勝」「大会」「地域」「環境」など、意味が明白な一般用語の説明は避けてください。
+- ニュースの内容に関連する、少し意外な知識や背景を優先してください。
+- 地域の伝統行事の由来、地域特有の文化、施設の特徴、競技独自のルール、取り組みが始まった背景などを候補にしてください。
+- ニュースの内容を理解するために本当に役立つ情報を優先してください。
+- ニュースと関係の薄い雑学を無理に追加しないでください。
+- ニュースのタイトル、説明、要約から離れた推測をしないでください。
+
+【正確性】
+- ニュースに書かれていない事実を、ニュースで確認された事実であるかのように書かないでください。
+- 一般知識を説明する場合も、確かな知識に限ってください。
+- 背景情報に確信がなければ、backgroundは省略してください。
+- 適切な豆知識が見つからなければ、無理に作らず0個にしてください。
+
+【文章】
+- 子どもにも理解できる、わかりやすい日本語にしてください。
+- 大人が読んでも新しい発見がある内容にしてください。
+- です・ます調で、簡潔に説明してください。
+- readingには用語の読み方をひらがなで書いてください。
+- explanationには、その用語の意味や特徴を書いてください。
+- backgroundには、意味をさらに深く理解するための背景情報がある場合だけ書いてください。
+- ニュースの要約や感想を繰り返さないでください。
+
+必ず指定されたJSON形式で返してください。
+`
+      },
+      {
+        role: "user",
+        content: `
+ニュースタイトル：
+${title}
+
+ニュースの説明：
+${description}
+
+ニュースの要約：
+${summary}
+
+次の形式で返してください。
+{
+  "terms": [
+    {
+      "term": "用語",
+      "reading": "よみかた",
+      "explanation": "用語の意味",
+      "background": "必要な場合のみ背景情報"
+    }
+  ]
+}
+`
+      }
+    ],
+    response_format: { type: "json_object" },
+  });
+
+  const content = response.choices[0]?.message?.content;
+
+  if (!content) {
+    return [];
+  }
+
+  try {
+    const parsed = JSON.parse(content);
+
+    if (!Array.isArray(parsed.terms)) {
+      return [];
+    }
+
+    return parsed.terms
+      .filter(
+        (item: unknown) =>
+          typeof item === "object" &&
+          item !== null &&
+          "term" in item &&
+          "reading" in item &&
+          "explanation" in item &&
+          typeof item.term === "string" &&
+          typeof item.reading === "string" &&
+          typeof item.explanation === "string"
+      )
+      .slice(0, 3)
+      .map((item: RelatedTerm) => ({
+        term: item.term,
+        reading: item.reading,
+        explanation: item.explanation,
+        ...(typeof item.background === "string" &&
+        item.background.trim() !== ""
+          ? { background: item.background }
+          : {}),
+      }));
+  } catch {
+    return [];
+  }
+}

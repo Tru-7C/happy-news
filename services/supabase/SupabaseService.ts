@@ -36,6 +36,12 @@ export async function saveNewsToSupabase(
       | "other";
     reason: string;
     intro_text?: string | null;
+    related_terms?: {
+      term: string;
+      reading: string;
+      explanation: string;
+      background?: string;
+    }[];
   }
 ) {
   const isHappy = analysis.happy_score >= 65;
@@ -52,6 +58,7 @@ export async function saveNewsToSupabase(
         is_happy: isHappy,
         ai_reason: analysis.reason,
         intro_text: analysis.intro_text ?? null,
+        related_terms: analysis.related_terms ?? [],
       },
       { onConflict: "video_id" }
     )

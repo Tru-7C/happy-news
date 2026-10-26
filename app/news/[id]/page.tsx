@@ -52,6 +52,7 @@ export default async function NewsDetailPage({ params }: Props) {
       happy_score,
       category,
       intro_text,
+      related_terms,
       ai_processed_at,
       videos (
         title,
@@ -311,6 +312,62 @@ export default async function NewsDetailPage({ params }: Props) {
             )}
           </div>
         </article>
+
+        {/* 用語・豆知識 */}
+        {Array.isArray(news.related_terms) &&
+          news.related_terms.length > 0 && (
+            <section className="mt-8 rounded-xl border border-orange-100 bg-orange-50/70 p-5 md:p-6">
+              <h2 className="text-lg font-bold text-gray-900">
+                ことば・豆知識
+              </h2>
+
+              <div className="mt-4 space-y-5">
+                {news.related_terms.map((item, index) => {
+                  const term = item as {
+                    term: string;
+                    reading: string;
+                    explanation: string;
+                    background?: string;
+                  };
+
+                  return (
+                    <div
+                      key={`${term.term}-${index}`}
+                      className={
+                        index > 0
+                          ? "border-t border-orange-100 pt-5"
+                          : ""
+                      }
+                    >
+                      <h3 className="font-bold text-gray-900">
+                        {term.term}
+                        {term.reading && (
+                          <span className="ml-2 text-sm font-normal text-gray-500">
+                            （{term.reading}）
+                          </span>
+                        )}
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-7 text-gray-700">
+                        {term.explanation}
+                      </p>
+
+                      {term.background && (
+                        <div className="mt-3">
+                          <p className="text-sm font-semibold text-orange-700">
+                            背景・豆知識
+                          </p>
+                          <p className="mt-1 text-sm leading-7 text-gray-700">
+                            {term.background}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
 
         {/* おすすめニュース */}
         {recommendedNews.length > 0 && (
