@@ -16,7 +16,7 @@ export async function processPendingVideos(limit = 5) {
     .from("videos")
     .select("*")
     .eq("ai_status", "pending")
-    .order("published_at", { ascending: false })
+    .order("published_at", { ascending: true })
     .limit(limit);
 
   if (error) {
