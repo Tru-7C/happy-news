@@ -33,7 +33,7 @@ export async function GET(request: Request) {
 
     // AI分析待ちの動画を処理
     const analysisResults =
-      await processPendingVideos(5);
+      await processPendingVideos(100);
 
     return Response.json({
       success: true,
