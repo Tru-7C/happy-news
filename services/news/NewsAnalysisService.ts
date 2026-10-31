@@ -10,7 +10,7 @@ import {
   generateRelatedTerms,
 } from "../openai/OpenAIService";
 
-export async function processPendingVideos(limit = 5) {
+export async function processPendingVideos(limit = 100) {
   // AI分析待ちの動画を取得
   const { data: videos, error } = await supabase
     .from("videos")
