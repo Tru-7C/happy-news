@@ -1,5 +1,8 @@
+
+import { start } from "workflow/api";
+
 import { fetchAndSaveLatestVideos } from "@/services/youtube/YouTubeService";
-import { processPendingVideos } from "@/services/news/NewsAnalysisService";
+import { processNewsWorkflow } from "@/src/workflows/newsWorkflow";
 
 export async function GET(request: Request) {
   const authHeader = request.headers.get("authorization");
@@ -31,18 +34,17 @@ export async function GET(request: Request) {
     const fetchResults =
       await fetchAndSaveLatestVideos();
 
-    // AI分析待ちの動画を処理
-    const analysisResults =
-      await processPendingVideos(20);
+    // AI分析Workflowをバックグラウンドで開始
+    await start(processNewsWorkflow, [20]);
 
     return Response.json({
       success: true,
       fetchResults,
-      analysisCount: analysisResults.length,
+      workflowStarted: true,
     });
   } catch (error) {
     console.error(
-      "Cron news processing failed:",
+      "News workflow start failed:",
       error
     );
 
